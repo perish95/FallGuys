@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/TestScene.unity
+    guid: fa4f6f35df612d344a91cea8be07eb6f
+  - enabled: 0
+    path: Assets/Scenes/GrabTestScene.unity
+    guid: 91a0cc12818ab2b4f88aaaa806f69981
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 5dded1072d190a046aaab5f50942a9eb
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: f09fd08446480c14eb466267c84790d9
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 7c44a93d79cef2647b11ec4c043c8120
+  - enabled: 1
+    path: Assets/Scenes/Race01.unity
+    guid: 95ec3528507f9af499f55c17ca5a76bf
+  - enabled: 1
+    path: Assets/Scenes/Race02.unity
+    guid: 72041f502ffb2c24bb9955866882dfbc
+  - enabled: 1
+    path: Assets/Scenes/Customize.unity
+    guid: 3e3c492dd9f76d6459ba5cead8bc0722
+  - enabled: 1
+    path: Assets/Scenes/Matching.unity
+    guid: 31a7fb497788aa44fb34690d7301eeb3
+  - enabled: 1
+    path: Assets/Scenes/Race03.unity
+    guid: 40e68857776bbf645a732ee0d752d1c3
+  - enabled: 1
+    path: Assets/Scenes/Final01.unity
+    guid: 0d48c3b427c8fc848a37c2ec5a0f881b
+  - enabled: 1
+    path: Assets/Scenes/Race04.unity
+    guid: 06222ac3b3eb6364280f5189bc0f22de
+  - enabled: 1
+    path: Assets/Scenes/Survive01.unity
+    guid: 64cff116679b3d04e99d4b42563c479b
+  - enabled: 1
+    path: Assets/Scenes/Winner.unity
+    guid: 0b537d513ed70fa4798a28ba764f4086
+  m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

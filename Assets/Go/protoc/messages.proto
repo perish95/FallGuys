@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+package game;
+
+option go_package = "Go/messages";
+
+message PlayerPosition {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+  float rx = 4; //각은 오일러로 받도록 하였음
+  float ry = 5;
+  float rz = 6;
+  string player_id = 7;
+}
+
+message ChatMessage {
+  string sender = 1;
+  string content = 2;
+}
+
+message LoginMessage {
+  string playerId = 1;    
+}
+
+message PlayerAnimation{
+  string player_anim_state = 1;
+  string player_id = 2;
+  float SpeedForward = 3;
+  float SpeedRight = 4;
+}
+
+message SpawnPlayer{
+  string playerId = 1;
+  float x = 2;
+  float y = 3;
+  float z = 4;
+  float rx = 5;
+  float ry = 6;
+  float rz = 7;
+}
+
+message LogoutMessage {
+  string playerId = 1;    
+}
+
+message RaceFinishMessage {
+  string playerId = 1;
+  int64 finishTime = 2;
+  bool survive = 3;
+}
+
+message CostumeMessage {
+  string playerId = 1;
+  int32 playerCostumeType = 2;
+  string playerCostumeName = 3;
+  string otherPlayerId = 4;
+}
+
+message RaceEndMessage {
+  string playerId = 1;
+}
+
+message GameMessage {
+  oneof message {
+    PlayerPosition player_position = 1;
+    ChatMessage chat = 2;
+    LoginMessage login = 3;
+    PlayerAnimation player_anim_state = 4;
+    SpawnPlayer spawnPlayer= 5;
+    SpawnPlayer spawnExistingPlayer = 6;
+    LogoutMessage logout = 7;
+    RaceFinishMessage race_finish = 8;
+    CostumeMessage player_costume = 9;
+    RaceEndMessage race_end = 10;
+    SpectatorStateMessage spectator_state = 11;
+    PlayerCountUpdate player_count = 12;
+    PlayerIndexMessage playerIndex = 13;
+    PlayerGrabInfo playerGrabInfo = 14;
+  }
+}
+
+message MatchingRequest {
+  string player_id = 1;
+  bool waiting = 2;
+}
+
+message MatchingResponse {
+  string game_server_address = 1;
+  bool success = 2;
+  repeated string map_name = 3;
+  int32 matching_seed = 4;
+}
+
+message MatchingUpdate {
+  int32 current_players = 1;
+  int32 required_players = 2;
+}
+
+message MatchingMessage {
+  oneof matching {
+    MatchingRequest matching_request = 1;       // 매칭 요청 추가, 클라 -> 서버
+    MatchingResponse matching_response = 2;      // 매칭 응답 추가, 서버 -> 클라
+    MatchingUpdate matching_update = 3;          // 매칭 상태 업데이트 추가
+  }
+}
+
+message SpectatorStateMessage {
+  string player_id = 1;          // 관전자 ID
+  bool is_spectating = 2;        // 관전 모드 여부
+  string target_player_id = 3;   // 관전 대상 플레이어 ID
+}
+
+message PlayerCountUpdate {
+  int32 current_alive = 1;    // 현재 생존 플레이어 수
+  int32 total_players = 2;    // 총 플레이어 수
+  int32 qualify_limit = 3;    // 통과할 플레이어 수
+}
+
+message RoundStateMessage {
+  int32 current_round = 1;
+  int32 players_required = 2;
+  repeated string qualified_players = 3;
+}
+
+
+message PlayerIndexMessage {
+  int32 player_index = 1;    // 몇 번째 플레이어인지
+}
+
+message PlayerGrabInfo{
+  string player_id = 1;
+  bool current_grab = 2; 
+}
